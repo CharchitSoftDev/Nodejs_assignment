@@ -1,0 +1,39 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"declaration": true,
+		"removeComments": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"target": "es2017",
+		"sourceMap": true,
+		"outDir": "./dist",
+		"baseUrl": "./",
+		"incremental": true,
+		"skipLibCheck": true,
+		"strictNullChecks": false,
+		"noImplicitAny": false,
+		"strictBindCallApply": false,
+		"forceConsistentCasingInFileNames": false,
+		"noFallthroughCasesInSwitch": false,
+		"paths": {
+			"@src/*": ["src/*"],
+			"@common/*": ["src/common/*"],
+			"@auth/*": ["src/auth/*"],
+			"@configs/*": ["src/configs/*"],
+			"@health/*": ["src/health/*"],
+			"@interceptors/*": ["src/interceptors/*"],
+			"@users/*": ["src/users/*"],
+			"@admin/*": ["src/admin/*"],
+			"@feedback/*": ["src/feedback/*"],
+			"@tooltips/*": ["src/tooltips/*"],
+			"@project/*": ["src/project/*"],
+			"@third-party/*": ["src/third-party/*"],
+			"@utils/*": ["src/utils/*"],
+			"@prisma-service/*": ["src/prisma/*"],
+			"@middleware/*": ["src/middleware/*"]
+		},
+		"resolveJsonModule": true
+	}
+}

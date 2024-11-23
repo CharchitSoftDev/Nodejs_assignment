@@ -1,0 +1,40 @@
+version: '3.3'
+services:
+  db:
+    image: postgres:14.6
+    environment:
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PASSWORD}
+      - POSTGRES_DB=${PG_DATABASE_NAME}
+    ports:
+      - ${PG_PORT}:${PG_PORT}
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+  api:
+    build:
+      args:
+        NPM_TOKEN: ${NPM_TOKEN}
+      context: .
+      dockerfile: local.Dockerfile
+    container_name: nest-charchit
+    image: nest-charchit
+    env_file:
+      - .env
+    ports:
+      - ${PORT}:${PORT}
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    depends_on:
+      - db
+    links:
+      - db
+    volumes:
+      - '.:/src/'
+      - './node_modules:/src/node_modules/'
+volumes:
+  db:
+    driver: local
